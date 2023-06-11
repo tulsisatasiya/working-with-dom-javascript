@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Box</title>
+
+    <style>
+        body{
+            background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #box1,#box2,#box3{
+            height: 300px;
+            width: 300px;
+            border-radius: 5px;
+            background-color: plum;
+            margin-right: 50px;
+            margin-top: 10px;
+            transition: all 0.5s ease;
+            box-shadow: 0px 1px 23px 7px rgba(0,0,0,0.63);
+        }
+        img{
+            width: 300px;
+            height: 200px;
+            background-size: cover;
+        }
+        p{
+            font-size: 20px;
+            text-align: center;
+        }
+        button{
+            background-color: blue;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            font-size: 20px;
+            margin-left: 45%;
+            margin-top: 5%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="box1"></div>
+        <div id="box2"></div>
+        <div id="box3">
+            <img id="img"><p id="para"></p>
+        </div>
+    </div>
+
+    <button onclick="animateall()">Click Me</button>
+    
+</body>
+</html>
+
+<script type="text/javascript">
+
+var box1 = document.getElementById('box1');
+var box2 = document.getElementById('box2');
+var box3 = document.getElementById('box3');
+
+    box1.addEventListener("mouseover", firstbox);
+    box1.addEventListener("mouseout", firstbox);
+
+    function firstbox() {
+        var width = Math.random() * 200 ;
+        var height = Math.random() * 200;
+        // var rotateValue = Math.random() * 360;
+
+  
+        box1.style.width = width + "px";
+        box1.style.height = height + "px";
+        // box1.style.transform = `rotate(${rotateValue}deg)`;
+
+    }
+
+    box2.addEventListener("mouseover", secondbox);
+    box2.addEventListener("mouseout", secondbox);
+
+    function secondbox(){
+        box2.style.backgroundColor = `#${Math.floor(Math.random() * 1000)}`;
+
+    }
+
+    box3.addEventListener("mouseover", thirdbox);
+
+    var arr = ['1.jpeg','2.jpeg','3.jpeg','4.jpeg','5.webp','6.jpeg','7.jpeg','8.jpeg','9.jpeg','10.jpeg'];
+    var arr_p = ["Thinking turns to inventiveness.","A most extraordinary technology.", "Upgrading the creativity to the cart.", "Best alternative solutions.","Where our solutions suit your internet actuality.","Innovative and practical.","Innovative solutions, use with care.","Earth-friendly web devlopment company.","Be ready for the best web devlopment.","If you can think it, we can make it."];
+
+    function thirdbox(){
+        var random = Math.floor(Math.random()*10);
+        var img = document.getElementById('img')
+        // img.src = arr[random];
+        // img.src = `images/${arr[random]}`;
+        img.src = arr[random];
+        para.innerHTML = arr_p[random];
+
+    }
+     
+    function animateall(){
+        setInterval(firstbox,300);
+        setInterval(secondbox,300);
+        setInterval(thirdbox,400);
+        // firstbox();
+        // secondbox();
+        // thirdbox();
+        
+    }
+
+    // setInterval(animateall, 300);
+    // setInterval(animateall, 100);
+
+</script>
